@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/*
+ * This file contains Original Code and/or Modifications of Original Code
+ * as defined in and that are subject to the Apache License
+ * Version 2.0 (the 'License'). You may not use this file except in
+ * compliance with the License. Please obtain a copy of the License at
+ * http://opensource.org/licenses/Apache-2.0/ and read it before using this
+ * file.
+ *
+ * The Original Code and all software distributed under the License are
+ * distributed on an 'AS IS' basis, WITHOUT WARRANTY OF ANY KIND, EITHER
+ * EXPRESS OR IMPLIED, AND APPLE HEREBY DISCLAIMS ALL SUCH WARRANTIES,
+ * INCLUDING WITHOUT LIMITATION, ANY WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE, QUIET ENJOYMENT OR NON-INFRINGEMENT.
+ * Please see the License for the specific language governing rights and
+ * limitations under the License.
+ */
+-->
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-plugin-livechat-ios-sdk"
+        version="0.9.5">
+
+    <name>LiveChat iOS SDK</name>
+
+    <description>Allows the integration of LiveChatInc's iOS SDK</description>
+
+    <license>Apache 2.0</license>
+
+    <author>Jon Taylor</author>
+
+    <!-- cordova -->
+    <engines>
+        <engine name="cordova" version=">=6.0.0" />
+        <engine name="apple-ios" version=">=10.0.0" />
+    </engines>
+
+    <!-- js -->
+    <js-module src="www/livechat-ios.js" name="LiveChatPlugin">
+                    <merges target="navigator" />
+    </js-module>
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="LiveChatPlugin">
+                <param name="ios-package" value="LiveChatPlugin"/>
+				        <param name="onload" value="true"/>
+            </feature>
+        </config-file>
+		
+		<preference name="CAMERA_USAGE_DESCRIPTION" default="This app needs camera access"/>
+		<config-file target="*-Info.plist" parent="NSCameraUsageDescription">
+			<string>$CAMERA_USAGE_DESCRIPTION</string>
+		</config-file>
+
+		<preference name="PHOTOLIBRARY_ADD_USAGE_DESCRIPTION" default="This app needs write-access to photo library"/>
+		<config-file target="*-Info.plist" parent="NSPhotoLibraryAddUsageDescription">
+			<string>$PHOTOLIBRARY_ADD_USAGE_DESCRIPTION</string>
+		</config-file>
+
+		<preference name="PHOTOLIBRARY_USAGE_DESCRIPTION" default="This app needs read/write-access photo library access"/>
+		<config-file target="*-Info.plist" parent="NSPhotoLibraryUsageDescription">
+                <string>$PHOTOLIBRARY_USAGE_DESCRIPTION</string>
+		</config-file>
+		<!--<source-file src="src/ios/Act Support_Bridging-Header.h" target-dir="src"/>
+		<source-file src="src/ios/ChatView.swift"  target-dir="src"/>
+		<source-file src="src/ios/Info.plist"  target-dir="src"/>
+		<source-file src="src/ios/JSONRequestCache.swift"  target-dir="src"/>
+		<source-file src="src/ios/KeyboardNotification.swift"  target-dir="src"/>
+		<source-file src="src/ios/LiveChat.swift"  target-dir="src"/>
+		<source-file src="src/ios/LiveChat.h"  target-dir="src"/>
+		<source-file src="src/ios/LiveChatConfiguration.swift"  target-dir="src"/>
+		<source-file src="src/ios/LiveChatMessage.swift"  target-dir="src"/>
+		<source-file src="src/ios/LiveChatOverlayViewController.swift"  target-dir="src"/>
+		<source-file src="src/ios/LiveChatState.swift"  target-dir="src"/>
+		<source-file src="src/ios/LiveChatWidget.js"  target-dir="src"/>
+		<source-file src="src/ios/LoadingView.swift"  target-dir="src"/>
+		<source-file src="src/ios/UnreadMessagesCounter.swift"  target-dir="src"/>
+		<source-file src="src/ios/URLBuilder.swift"  target-dir="src"/>
+		<source-file src="src/ios/WebViewAnimationCoordinator.swift"  target-dir="src"/>
+		<source-file src="src/ios/WebViewBridge.swift"  target-dir="src"/>-->
+        <header-file src="src/ios/LiveChatPlugin.h" />
+        <source-file src="src/ios/LiveChatPlugin.m" />
+    </platform>
+
+</plugin>
