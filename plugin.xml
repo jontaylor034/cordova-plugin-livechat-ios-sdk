@@ -64,7 +64,6 @@
 		<config-file target="*-Info.plist" parent="NSPhotoLibraryUsageDescription">
                 <string>$PHOTOLIBRARY_USAGE_DESCRIPTION</string>
 		</config-file>
-		<source-file src="src/ios/Act Support_Bridging-Header.h" target-dir="src"/>
 		<source-file src="src/ios/ChatView.swift"  target-dir="src"/>
 		<source-file src="src/ios/Info.plist"  target-dir="src"/>
 		<source-file src="src/ios/JSONRequestCache.swift"  target-dir="src"/>
