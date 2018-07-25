@@ -15,10 +15,9 @@
  * limitations under the License.
  */
 
-#import "Act Support-Bridging-Header.h"
 #import "LiveChatPlugin.h"
 #import <Cordova/CDVPlugin.h>
-#import "Swift2Objc-Header.h"
+#import "Act_Support-Swift.h"
 
 @implementation LiveChatPlugin
 
